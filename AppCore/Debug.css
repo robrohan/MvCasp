@@ -1,0 +1,16 @@
+
+#mvcasp_debug {
+	margin: 3px;
+	padding: 5px;
+	font-family: monaco, courier, serif;
+	font-size: 8pt;
+	color: green;
+	border: 2px dashed #cfd1dd;
+	background-color: black;
+}
+
+#mvcasp_debug p {
+	margin: 0;
+	padding: 0;
+	line-height: 12pt;
+}
