@@ -18,6 +18,7 @@
 	FILE_EXT = ".asp"
 	'The directory where this application is installed / if on the root, /myapp, etc
 	INSTALL_PATH = Replace(Request.ServerVariables("PATH_INFO"),"/" & (INDEX_PAGE & FILE_EXT),"")
+	SERVER_INSTALL_PATH = Replace(Request.ServerVariables("PATH_TRANSLATED"), "\" & (INDEX_PAGE & FILE_EXT),"")
 	'The default controller "page"
 	CONTROLLER = "Example"
 	'The default method
@@ -48,4 +49,6 @@
 	
 	Session("LINK_PATH") = INSTALL_PATH & "/" & INDEX_PAGE & FILE_EXT & "?" & URL_COMMAND_VAR & "="
 	Session("LINK_DELIM") = C_M_Delimiter
+	Session("INSTALL_PATH") = INSTALL_PATH
+	Session("SERVER_INSTALL_PATH") = SERVER_INSTALL_PATH
 %>

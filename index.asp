@@ -13,14 +13,7 @@
 		Utils.AddError("Controller '" & Session("CONTROLLER") & "' is not defined (" & ControllerFile & ")")
 	End If
 	
-	'The controller should have specified a view, run that if it exists
-	ViewFile = INSTALL_PATH & "/View/" & Session("VIEW") & FILE_EXT
-	If Utils.FileExists(Server.MapPath(ViewFile)) Then 
-		Server.Execute(ViewFile)
-	Else
-		Utils.AddError("View '" & Session("VIEW") & "' is not defined (" & ViewFile & ")")
-		Server.Execute(INSTALL_PATH & "/View/" & Session("ERROR_VIEW") & FILE_EXT)
-	End If
+	Utils.ShowView(Session("VIEW") & FILE_EXT)
 	
 	''////////////////////////////////////////////////////////////////
 

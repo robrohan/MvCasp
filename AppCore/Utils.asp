@@ -24,6 +24,17 @@
 			End If
 		End Function
 		
+		Public Function ShowView(strViewPath)
+			ViewFile = Session("INSTALL_PATH") & "/View/" & strViewPath
+			
+			If FileExists(Server.MapPath(ViewFile)) Then 
+				ShowView = Server.Execute(ViewFile)
+			Else
+				AddError("View '" & Session("VIEW") & "' is not defined (" & ViewFile & ")")
+				Server.Execute(INSTALL_PATH & "/View/" & Session("ERROR_VIEW") & FILE_EXT)
+			End If
+		End Function
+		
 		Public Function FileExists(strFilepath)
 			Set FSO = CreateObject("Scripting.FileSystemObject")
 			FileExists = FSO.FileExists(strFilepath)
