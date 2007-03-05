@@ -18,7 +18,7 @@
 	'
 	' The recorder automatically rolls files and creates a file called TotalProgram.csv
 	' which is a running totally of the whole program.
-	' The duration of the rollind and the start date of the files can be controlled by
+	' The duration of the rolling and the start date of the files can be controlled by
 	' setting hidden fields on the form. For example:
 	'
 	' <input type="hidden" name="sort" value="order:FIRST_NAME,LAST_NAME,TITLE,CONTACT">
