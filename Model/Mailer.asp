@@ -5,8 +5,8 @@
 	' Dim MyMailer
 	' Set MyMailer = new Mailer
 	'		
-	' MyMailer.ToEmail = "robrohan@gmail.com"
-	' MyMailer.From = "test@robrohan.com"
+	' MyMailer.ToEmail = "test@gmail.com"
+	' MyMailer.From = "test@blarg.com"
 	' MyMailer.Subject = "Form Submission"
 	' MyMailer.SendMail("test mail")
 	' (end code)
