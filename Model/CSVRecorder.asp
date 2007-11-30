@@ -23,6 +23,7 @@
 	'
 	' <input type="hidden" name="sort" value="order:FIRST_NAME,LAST_NAME,TITLE,CONTACT">
 	' <input type="hidden" name="startdate" value="2006/08/03">
+	' <input type="hidden" name="interval" value="week | day">
 	' <input type="hidden" name="duration" value="1">
 	'
 	' Author: 
@@ -49,7 +50,7 @@
 			strSort = Request.Form("sort")
 			arrStr = Split(strSort,",")
 			
-			''Remove the "sort:" part of the sort hidden field 
+			'Remove the "order:" part of the sort hidden field 
 			strSortVal = arrStr(0)
 			strSortVal = Right(strSortVal, (Len(strSortVal) - 6) )
 			arrStr(0) = strSortVal
@@ -60,13 +61,29 @@
 		Function GetFileName()
 			Dim dateFileDate
 			Dim strFileName
-			Dim numWeekDiff
+			Dim numDiff
+			Dim strMeasurement
 			
-			''get the difference between now and the start date in weeks
-			numWeekDiff = DateDiff("ww",Request.Form("startdate"),Now())
+			strMeasurement = LCase(Request.Form("interval"))
 			
-			''now add the difference to the start date to get the filename
-			dateFileDate = DateAdd("ww",(Request.Form("duration")*numWeekDiff),Request.Form("startdate"))
+			'translate the human text to datediff text
+			' yyyy - Year, q - Quarter, m - Month, y - Day of year, d - Day, w - Weekday
+			' ww - Week of year, h - Hour, n - Minute, s - Second
+			Select Case strMeasurement
+				Case "week"
+					strMeasurement = "ww"
+				Case "day"
+					strMeasurement = "y"
+				Case Else
+					'if not duration default to weeks
+					strMeasurement = "ww"
+			End Select
+			
+			'get the difference between now and the start date in weeks
+			numDiff = DateDiff(strMeasurement, Request.Form("startdate"), Now())
+			
+			'now add the difference to the start date to get the filename
+			dateFileDate = DateAdd(strMeasurement, (Request.Form("duration")*numDiff), Request.Form("startdate"))
 			
 			strFileName = Year(dateFileDate) & "_" & Month(dateFileDate) & "_" & Day(dateFileDate)
 			GetFileName = strFileName
