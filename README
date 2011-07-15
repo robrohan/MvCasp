@@ -1,0 +1,14 @@
+Description
+-----------
+
+MvCasp is a very simple, easy to understand frameworks for ASP (not ASP.net).  It is a simple Model View Controller / Front Controller framework for small web applications. I use them for very simple sites that need a bit of modularity or have components I'll use in other projects, but don't require a full-featured framework.
+
+This is not do-it-all full-on framework (like CakePHP or what have you).  It is intended for simple, single purpose sites like a landing page, standalone RSS feeder, or maybe an embedded device application.
+
+License
+-------
+
+Public Domain
+
+Do what thou wilt
+
