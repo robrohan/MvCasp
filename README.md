@@ -94,6 +94,7 @@ The main parts of the framework. AppCore/Settings.asp has stuff you may want to 
 Here is a quick reference to the main parts of the framework:
 
 || Variable || Does ||
+|-----------|---------|
 | Session("CONTROLLER") | the controller portion from the url (information only) |
 | Session("METHOD") | the method portion from the url (information only) |
 | Session("VIEW") | the main view page to use for the request (controllers should set this) |
@@ -103,6 +104,7 @@ Here is a quick reference to the main parts of the framework:
 | Session(strUserDefined) - any variables that the controller wants / should pass to the view |
 
 || Method || Does ||
+|-----------|---------|
 | <!-- #include file="AppCore/Utils.asp" --> | to get the Utils object |
 | Utils.AddError(strErrorText) | add a processing error (for display on the error page) |
 | Utils.ShowView(strViewPage) | a page in the View directory |
